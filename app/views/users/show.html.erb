@@ -1,3 +1,7 @@
-<h1>Voici votre profile</h1>
+<div class="text-center">
+  <h1 >Voici votre profile <%= @user.first_name%></h1>
 
-<p><%= @user.email%></p>
+  <p class: "btn btn-primary"><%= link_to 'Update your profile', edit_user_path(@user) %></p>
+
+</div>
+
