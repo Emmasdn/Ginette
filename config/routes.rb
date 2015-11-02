@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
+  devise_for :users
   resources :users, only: [:show, :edit, :update]
-  resources :bookings, only: [:create, :new, :edit, :update, :detroy, :show]
-  resources :annonces, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :pages, only: [:index]
+  resources :annonces do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:edit, :update, :show]
 
-
-  root 'home#index'
+  root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
