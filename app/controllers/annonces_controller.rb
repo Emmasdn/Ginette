@@ -21,7 +21,7 @@ class AnnoncesController < ApplicationController
   def create
     @annonce = Annonce.new(annonce_params)
       if @annonce.save
-        redirect_to annonce_path(annonce)
+        redirect_to annonce_path(@annonce)
       else
         render :new
       end
@@ -51,7 +51,7 @@ class AnnoncesController < ApplicationController
   end
 
   def annonce_params
-    params.require(:annonce).permit( :name, :adresse, :price, :description, :child_number, :user_id)
+    params.require(:annonce).permit( :name, :city, :price, :description, :child_number, :user_id)
   end
 
 end
