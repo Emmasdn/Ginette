@@ -8,7 +8,7 @@
   <p><%= @annonce.description %></p>
   <p><%= link_to "Book it", new_annonce_booking_path(@annonce) %></p>
   <p><%= link_to "Back to homepage", root_path %></p>
-  <%= link_to "Delete", annnonce_path(annonce), method: :delete, class: "btn btn-danger" %>
+  <%= link_to "Delete", annonce_path(@annonce), method: :delete, class: "btn btn-danger" %>
 
 </div>
 
