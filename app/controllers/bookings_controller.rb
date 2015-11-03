@@ -27,12 +27,15 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
   def set_annonce
     @annonce = Annonce.find(params[:annonce_id])
   end
+
   def booking_params
     params.require(:booking).permit( :child_number)
   end
