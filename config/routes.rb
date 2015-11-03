@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'pages/home'
+  # get 'pages/home'
 
   devise_for :users
   resources :users, only: [:show, :edit, :update]
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:edit, :update, :show]
+  resources :my_profile, only: [:index]
+  #ici on fait une nouveau controller pour my_profile.
 
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
