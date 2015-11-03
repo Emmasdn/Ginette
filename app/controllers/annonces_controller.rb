@@ -44,7 +44,7 @@ class AnnoncesController < ApplicationController
     redirect_to root_path
   end
 
-  def post_params
+  def annonce_params
   params.require(:annonce).permit(:title, :body, :picture)
   end
 
