@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
-  before_action :set_annonce, only: [:show, :create, :new]
+  before_action :set_booking, only: [:destroy]
+  before_action :set_annonce
 
   def new
     @booking = Booking.new
@@ -8,8 +9,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.annonce = @annonce
       if @booking.save
-        redirect_to booking_path(booking)
+        redirect_to booking_path(@booking)
       else
         render :new
       end
@@ -20,25 +22,20 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @annonce.delete
+    @booking.delete
     redirect_to root_path
   end
 
   private
-
-  def set_annonce
+  def set_booking
     @booking = Booking.find(params[:id])
   end
-
+  def set_annonce
+    @annonce = Annonce.find(params[:annonce_id])
+  end
   def booking_params
-    params.require(:booking).permit( :annonce_id, :adresse, :price, :description, :child_number, :user_id)
+    params.require(:booking).permit( :child_number)
   end
 
 end
 
-t.integer  "user_id"
-    t.integer  "annonce_id"
-    t.boolean  "accepted"
-    t.datetime "start_at"
-    t.datetime "finish_at"
-    t.text     "message"

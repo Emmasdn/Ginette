@@ -2,12 +2,13 @@
   <h1> Here is you announce</h1>
 
   <h1><%= @annonce.name %></h1>
-  <p><%= @annonce.adresse %></p>
+  <p><%= @annonce.city %></p>
   <p><%= @annonce.price %></p>
   <p><%= @annonce.child_number %></p>
   <p><%= @annonce.description %></p>
-
+  <p><%= link_to "Book it", new_annonce_booking_path(@annonce) %></p>
   <p><%= link_to "Back to homepage", root_path %></p>
+  <%= link_to "Delete", annnonce_path(annonce), method: :delete, class: "btn btn-danger" %>
 
 </div>
 
