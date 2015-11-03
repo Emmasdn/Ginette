@@ -1,21 +1,37 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner text-center" style="background-image: url('<%= image_path "playground1" %>')">
+  <div class="banner-gradient"></div>
+  <div class="banner-content">
+    <h1>Ginette</h1>
+    <p>Find a nanny in your neighborhood, and share the price with your neighbor</p>
+    <%= link_to t("btn btn-primary btn-lg", default: "propose my services"), new_annonce_path(),  class: "navbar-wagon-item navbar-wagon-button btn" %>
+  </div>
+</div>
+
+<div class = "text-center">
+ <h1>Search for a nanny</h1>
+ <p>Find a nanny avalable, for your kid in your neighborhood</p>
+</div>
 
 
-<div class="col-xs-10 col-xs-offset-1">
-  <%= form_tag(annonces_path, method: :get) do %>
-    <div class="form-group">
-      <%= label_tag :city %>
-      <%= text_field_tag :city, nil, placeholder: "City", class: "form-control" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= form_tag(annonces_path, method: :get) do %>
+        <div class="form-group">
+          <%= label_tag :city %>
+          <%= text_field_tag :city, nil, placeholder: "City", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :date %>
+          <%= text_field_tag :date, nil, placeholder: "DD/MM/YYYY", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :number_child %>
+          <%= text_field_tag :number_child, nil, placeholder: "Number of children", class: "form-control" %>
+        </div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <div class="form-group">
-      <%= label_tag :date %>
-      <%= text_field_tag :date, nil, placeholder: "DD/MM/YYYY", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :number_child %>
-      <%= text_field_tag :number_child, nil, placeholder: "Number of children", class: "form-control" %>
-    </div>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+
+  </div>
 </div>

@@ -10,7 +10,8 @@
     width: 100%;
   }
   &-logo {
-    width: 50px;
+    width: 70px;
+
   }
   &-container {
     display: flex;
@@ -61,24 +62,25 @@
     color: #616668;
     font-size: 14px;
     &:hover {
-      color: #da552f;
+      color: #F8A79B;
       text-decoration: none;
     }
+
   }
   &-button {
     margin-left: 10px;
     padding: 0 20px;
     border-radius: 20em;
     line-height: 40px;
-    background-color: #D23333;
+    background-color: #E45171;
     color: white;
     font-size: 14px;
-    border: 2px solid $brand-color;
+
 
     &:hover {
       color: white;
-      background: $brand-color;
-      border-color: darken($brand-color, 10%);
+      background: #F8A79B;
+      //border-color: darken($brand-color, 10%);
     }
   }
   &-dropdown-menu {
@@ -119,3 +121,5 @@
     margin-right: 10px;
   }
 }
+
+
