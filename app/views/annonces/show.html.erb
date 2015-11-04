@@ -7,8 +7,8 @@
   <p>Price : <%= @annonce.price %>€/hour</p>
   <p>Capacity : <%= @annonce.child_number %> children</p>
   <p>More info : <%= @annonce.description %></p>
-  <p><%= link_to "Book it", new_annonce_booking_path(@annonce) %></p>
-  <p><%= link_to "Back to homepage", root_path %></p>
+  <p><%= link_to "Book it", new_annonce_booking_path(@annonce), class: "btn btn-primary"%></p>
+  <p><%= link_to "Back to homepage", root_path, class: "btn btn-primary" %></p>
   <%= image_tag @annonce.picture.url(:medium) %>
 
 
