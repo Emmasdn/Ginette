@@ -1,6 +1,7 @@
 class Annonce < ActiveRecord::Base
   belongs_to :user
 
+  has_many :bookings
  has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 
@@ -11,4 +12,7 @@ class Annonce < ActiveRecord::Base
   # validates :adresse, presence: true
   # validates :price, presence: true
   # validates :child_number, presence: true
+
+  geocoded_by :adresse
+  after_validation :geocode, if: :adresse_changed?
 end

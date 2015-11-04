@@ -3,14 +3,41 @@
 
 <div class="container">
   <div class="row">
-    <% @annonces.each do |annonce| %>
-    <div class="col-xs-12 col-sm-4">
-      <h2><%= annonce.name %></h2>
-      <p><%= annonce.city %></p>
-      <p><%= annonce.price %></p>
-      <p><%= annonce.child_number %></p>
-      <%= link_to "More", annonce_path(annonce) %>
+    <div class="col-xs-6">
+      <div class="row">
+      <% @annonces.each do |annonce| %>
+        <div class="col-xs-6">
+
+          <h2><%= annonce.name %></h2>
+          <p><%= annonce.price %> €/hour</p>
+          <p>Capacity :<%= annonce.child_number %> children</p>
+          <p>Addres: <%= annonce.adresse %></p>
+          <p>City :<%= annonce.city %></p>
+          <%= link_to "More", annonce_path(annonce) %>
+        </div>
+      <% end %>
+      </div>
     </div>
-    <% end %>
+
+    <div class="col-xs-6">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).on('ready', function() {
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+            })
+          <% end %>
+        <% end %>
+    </div>
   </div>
 </div>
+
+
+
+
+
