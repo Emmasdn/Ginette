@@ -3,17 +3,28 @@ class AnnoncesController < ApplicationController
    before_action :set_annonce, only: [:show, :update, :edit, :destroy]
 
   def index
-    # @annonces = Annonce.all
+    @annonces = Annonce.all
+
+    # Let's DYNAMICALLY build the markers for the view.
+
     if params[:city]
       @annonces = Annonce.where(city: params[:city])
     else
       @annonces = Annonce.all
     end
+
+    @markers = Gmaps4rails.build_markers(@annonces) do |annonce, marker|
+      marker.lat annonce.latitude
+      marker.lng annonce.longitude
+    end
   end
 
+
   def show
-    @annonce = Annonce.find(params[:id])
-    @alert_message = "You are viewing #{@annonce.name}"
+    @markers = Gmaps4rails.build_markers(@annonce) do |annonce, marker|
+      marker.lat annonce.latitude
+      marker.lng annonce.longitude
+    end
   end
 
   def new

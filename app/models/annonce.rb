@@ -1,6 +1,7 @@
 class Annonce < ActiveRecord::Base
   belongs_to :user
 
+  has_many :bookings
  has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 
