@@ -20,6 +20,7 @@ class AnnoncesController < ApplicationController
 
   def create
     @annonce = Annonce.new(annonce_params)
+    @annonce.save
       if @annonce.save
         redirect_to annonce_path(@annonce)
       else
