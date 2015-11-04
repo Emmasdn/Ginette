@@ -59,7 +59,21 @@ gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 
 gem 'figaro'
+gem 'omniauth-facebook'
 
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+
+gem "geocoder"
+
+
+
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+
+
 
