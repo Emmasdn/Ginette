@@ -12,6 +12,8 @@ class AnnoncesController < ApplicationController
   end
 
   def show
+    @annonce = Annonce.find(params[:id])
+    @alert_message = "You are viewing #{@annonce.name}"
   end
 
   def new
@@ -53,7 +55,7 @@ class AnnoncesController < ApplicationController
   end
 
   def annonce_params
-    params.require(:annonce).permit( :name, :picture, :city, :price, :description, :child_number, :user_id)
+    params.require(:annonce).permit( :name, :adresse, :picture, :city, :price, :description, :child_number, :user_id)
   end
 
 end
