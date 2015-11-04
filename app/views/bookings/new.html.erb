@@ -6,6 +6,7 @@
    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
      <%= simple_form_for [@annonce, @booking] do |f| %>
        <%= f.input :message, placeholder: "Precise any pieces of information you think are important " %>
+       <%= f.input :date, placeholder: "Date!" %>
        <%= f.input :start_at, collection: 7..18, prompt: "At what time do you want to leave your treasure?", placeholder: "Starting time!" %>
        <%= f.input :finish_at, collection: 8..19, prompt: "At what time do you want to fetch your treasure?", placeholder: "Finishing time!" %>
        <%= f.submit "Send your reservation", class: "btn btn-primary" %>
