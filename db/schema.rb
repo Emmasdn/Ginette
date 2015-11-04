@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151104140910) do
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "date"
   end
 
   add_index "bookings", ["annonce_id"], name: "index_bookings_on_annonce_id", using: :btree
