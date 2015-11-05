@@ -13,9 +13,9 @@
 .sm-padded{
   padding-top: 5px;
 }
-.padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+.padded-home {
+  padding-top: 8em;
+  padding-bottom: 8em;
 }
 
 // Backgrounds
@@ -30,4 +30,17 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.marge{
+padding-top: 175px;
+padding-bottom: 125px;
+}
+
+.padded-bottom{
+  margin-bottom:110px;
+}
+
+.padded{
+  padding-bottom:50px;
 }
