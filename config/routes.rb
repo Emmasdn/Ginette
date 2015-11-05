@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:edit, :update, :show]
   resources :my_profile, only: [:index]
+  get 'users/:id/profile' => 'users#profile'
+
+
   #ici on fait une nouveau controller pour my_profile.
 
   root 'pages#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

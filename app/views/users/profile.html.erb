@@ -1,0 +1,15 @@
+
+
+<div class="text-center">
+  <h1>Your profile <%= @user.first_name%></h1>
+
+  <p>Your availabilities</p>
+
+  <p><%= link_to 'Edit your annonce', edit_user_path(@user), class: "btn btn-primary" %></p>
+
+  <p>Your bookings</p>
+
+  <p><%= link_to 'Edit your booking', new_annonce_path, class: "btn btn-primary" %></p>
+
+
+</div>

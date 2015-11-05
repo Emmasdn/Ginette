@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_user, only: [:show, :update, :edit]
+  before_action :set_user, only: [:show, :update, :edit, :profile]
 
   def show
   end
@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def profile
   end
 
 
