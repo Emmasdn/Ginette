@@ -56,7 +56,9 @@ class AnnoncesController < ApplicationController
   end
 
   def destroy
-    @annonce.delete
+    # check the user
+    annonce = current_user.annonces.find(params[:id])
+    annonce.destroy if annonce
     redirect_to root_path
   end
 

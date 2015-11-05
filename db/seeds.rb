@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: 'emma@sdn.com', encrypted_password: '123456789')
-
+Annonce.create()
