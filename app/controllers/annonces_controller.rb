@@ -1,6 +1,8 @@
 class AnnoncesController < ApplicationController
 
-   before_action :set_annonce, only: [:show, :update, :edit, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_annonce, only: [:show, :update, :edit, :destroy]
+
 
   def index
     @annonces = Annonce.all
@@ -54,7 +56,9 @@ class AnnoncesController < ApplicationController
   end
 
   def destroy
-    @annonce.delete
+    # check the user
+    annonce = current_user.annonces.find(params[:id])
+    annonce.destroy if annonce
     redirect_to root_path
   end
 
