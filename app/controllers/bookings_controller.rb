@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 
+
   before_action :set_booking, only: [:destroy]
   before_action :set_annonce
   skip_before_action :authenticate_user!, only: :show
@@ -11,6 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.annonce = @annonce
+    @booking.user = current_user
     @booking.save
       if @booking.save
         redirect_to booking_path(@booking)
@@ -20,7 +22,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    @time = @booking.finish_at - @booking.start_at
+    @minutes = @time/60
+    @hours = @minutes/60
+    @total_price = @hours*(@booking.annonce.price)
   end
 
   def destroy
@@ -39,8 +44,11 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:child_number, :start_at, :finish_at)
+    params.require(:booking).permit( :message, :start_at, :finish_at)
   end
 
 end
+
+
+
 
