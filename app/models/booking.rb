@@ -6,7 +6,6 @@ class Booking < ActiveRecord::Base
   validates :annonce, presence: true
   validates :start_at, presence: true
   validates :finish_at, presence: true
-  validates :accepted, presence: true
 
 end
 
