@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: [:destroy]
   before_action :set_annonce
+  skip_before_action :authenticate_user!, only: :show
 
   def new
     @booking = Booking.new
