@@ -23,7 +23,7 @@
       <%= booking.start_at %>
       <%= booking.finish_at %>
       <%= booking.message %>
-    <p><%= link_to 'Edit your booking', new_annonce_path, class: "btn btn-primary" %></p>
+    <p><%= link_to 'Edit your booking', edit_booking_path(booking), class: "btn btn-primary" %></p>
     <% end %>
   <% end %>
 
