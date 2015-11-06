@@ -1,7 +1,8 @@
-<h1 class="text-center"> Here is your page to book a super-nanny!</h1>
-
-
-<div class="container">
+<div class=padded-booking>
+  <h1 class="text-center "> <strong>Final step ! </strong> </h1>
+  <h3 class="text-center"> <strong>Finalize</strong> your booking with Super-Nanny : <strong><span class="rose"><%=@annonce.name%></span></strong>!
+   </h3>
+<div class="container padded-booking">
  <div class="row">
    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
      <%= simple_form_for [@annonce, @booking] do |f| %>
@@ -13,6 +14,7 @@
    </div>
  </div>
 </div>
+
 
 
 
