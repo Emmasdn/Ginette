@@ -1,20 +1,22 @@
-<h1 class="text-center"> All the nannies available</h1>
+<h1 class="paddingduh1 paddingtop"> All the nannies available</h1>
 
 
-<div class="container">
+<div class="container container-index">
   <div class="row">
     <div class="col-xs-6">
       <div class="row">
-      <% @annonces.each do |annonce| %>
-        <div class="col-xs-6 card">
-          <h2><%= annonce.name %></h2>
-          <p><%= annonce.price %> €/hour</p>
-          <p>Capacity :<%= annonce.child_number %> children</p>
-          <p>Addres: <%= annonce.adresse %></p>
-          <p>City :<%= annonce.city %></p>
-          <%= link_to "More", annonce_path(annonce) %>
-        </div>
-      <% end %>
+          <% @annonces.each do |annonce| %>
+            <div class="col-xs-6" >
+              <div class="card">
+               <h2><%= annonce.name %></h2>
+                <p><%= annonce.price %> €/hour</p>
+                <p>Capacity :<%= annonce.child_number %> children</p>
+                <p>Addres: <%= annonce.adresse %></p>
+                <p>City :<%= annonce.city %></p>
+                <%= link_to "More", annonce_path(annonce) %>
+              </div>
+            </div>
+          <% end %>
       </div>
     </div>
 
