@@ -5,6 +5,7 @@
       <%= image_tag "logo.png", class: "navbar-wagon-logo" %>
     </a>
 
+
     <div class="navbar-wagon-pusher"></div>
 
 
@@ -45,6 +46,7 @@
     <% end %>
     <hr>
     <%= link_to t(".top_call_to_action", default: "All annonces"), "/annonces", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <p><%= link_to 'Your Profile', my_profile_index_path(@user), class: "btn btn-primary" %></p>
   </div>
 </nav>
 
