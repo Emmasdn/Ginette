@@ -20,7 +20,7 @@
           <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to "/users/profile" do %>
                 <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
               <% end %>
             </li>
@@ -43,7 +43,6 @@
     <% end %>
     <hr>
     <%= link_to t(".top_call_to_action", default: "All annonces"), "/annonces", class: "navbar-wagon-item navbar-wagon-button btn" %>
-      <p><%= link_to 'Your Profile', my_profile_index_path(@user), class: "btn btn-primary" %></p>
   </div>
 </nav>
 
