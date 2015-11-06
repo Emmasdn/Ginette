@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook]
 
 
-  has_one :annonce, dependent: :destroy
+  has_many :annonces, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
   # validates :email, presence: true

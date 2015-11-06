@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   # get 'pages/home'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :users, only: [:show, :edit, :update]
+
+  get 'users/profile' => 'users#profile'
+  resources :users, only: [:show, :update]
   resources :annonces do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:edit, :update, :show]
-  resources :my_profile, only: [:index]
-  get 'users/:id/profile' => 'users#profile'
 
 
   #ici on fait une nouveau controller pour my_profile.

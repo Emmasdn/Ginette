@@ -3,13 +3,28 @@
 <div class="text-center">
   <h1>Your profile <%= @user.first_name%></h1>
 
-  <p>Your availabilities</p>
+  <% if @user.annonces.any? %>
+    <p>Your availabilities</p>
 
-  <p><%= link_to 'Edit your annonce', edit_user_path(@user), class: "btn btn-primary" %></p>
+    <% @user.annonces.each do |annonce| %>
+      <%= annonce.name %>
+      <%= annonce.adresse %>
+      <%= annonce.price %>
+      <%= annonce.description %>
+      <%= annonce.child_number %>
+    <p><%= link_to 'Edit your annonce', edit_annonce_path(annonce), class: "btn btn-primary" %></p>
+    <% end %>
+  <% end %>
 
-  <p>Your bookings</p>
+  <% if @user.bookings.any? %>
+    <p>Your bookings</p>
 
-  <p><%= link_to 'Edit your booking', new_annonce_path, class: "btn btn-primary" %></p>
-
+    <% @user.bookings.each do |booking| %>
+      <%= booking.start_at %>
+      <%= booking.finish_at %>
+      <%= booking.message %>
+    <p><%= link_to 'Edit your booking', new_annonce_path, class: "btn btn-primary" %></p>
+    <% end %>
+  <% end %>
 
 </div>

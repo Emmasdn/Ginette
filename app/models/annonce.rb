@@ -12,6 +12,7 @@ class Annonce < ActiveRecord::Base
   # validates :adresse, presence: true
   # validates :price, presence: true
   # validates :child_number, presence: true
+  validates :user_id, presence: true
 
   geocoded_by :adresse
   after_validation :geocode, if: :adresse_changed?
