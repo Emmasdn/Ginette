@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
 
 
-  before_action :set_booking, only: [:destroy]
-  before_action :set_annonce
+  before_action :set_booking, only: [:destroy, :show, :edit, :update]
+  before_action :set_annonce, except: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: :show
 
   def new
@@ -32,6 +32,20 @@ class BookingsController < ApplicationController
     @booking.delete
     redirect_to root_path
   end
+
+  def edit
+    @annonce = @booking.annonce
+  end
+
+  def update
+    @booking.update(booking_params)
+    if @booking.save
+      redirect_to annonces_path
+    else
+      render :edit
+    end
+  end
+
 
   private
 

@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_user, only: [:show, :update, :edit, :profile]
+  before_action :set_user, only: [:show, :update]
 
   def show
-  end
-
-
-  def edit
   end
 
   def update
@@ -20,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+   @user = current_user
   end
 
 
@@ -32,4 +29,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit( :email, :password)
   end
+
+
 end
