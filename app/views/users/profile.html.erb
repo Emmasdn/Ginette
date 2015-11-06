@@ -1,6 +1,6 @@
 <div class=padded-booking>
   <h1 class="text-center "> Hey <strong><span class="rose"><%=@user.first_name%> </span></strong> </h1>
-  <div class= "text-center image-circle"><%=image_tag current_user.picture%></div>
+  <div class= "text-center"><%=image_tag current_user.picture, class: "avatar-large avatar-bordered" %></div>
 <div class="text-center">
   <% if @user.annonces.any? %>
   <div class="row">
