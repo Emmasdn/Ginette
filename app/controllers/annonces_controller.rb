@@ -34,7 +34,7 @@ class AnnoncesController < ApplicationController
   end
 
   def create
-    @annonce = Annonce.new(annonce_params)
+    @annonce = current_user.annonces.new(annonce_params)
     @annonce.save
       if @annonce.save
         redirect_to annonce_path(@annonce)
@@ -47,9 +47,9 @@ class AnnoncesController < ApplicationController
   end
 
   def update
-    @annonce = Annonce.update(annonce_params)
+    @annonce.update(annonce_params)
     if @annonce.save
-      redirect_to annonce_path(annonce)
+      redirect_to annonce_path(@annonce)
     else
       render :edit
     end
