@@ -1,31 +1,35 @@
-  <div class="banner text-center" style="background-image: url('<%= image_path "playground1" %>')">
+  <div class="banner text-center" style="background-image: url('<%= image_path "Home_page" %>')">
   <div class="banner-gradient"></div>
   <div class="banner-content padded">
-    <h1>Ginette</h1>
-    <p>Find a nanny in your neighborhood, and share the price with your neighbor</p>
+    <h1>My Social Workplace</h1>
+    <p>Trouvez un espace de travail abordable pour votre social business</p
     <%= link_to t("btn btn-primary btn-lg", default: "propose my services"), new_annonce_path(),  class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
-</div>
+</div
 <div class ="padded-home">
   <div class = "text-center padded">
-   <h1>Search for a nanny</h1>
+   <h2>Trouvez un espace de travail</h2>
   </div>
   <div class="container padded-bottom">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <p>Find a nanny avalable, for your kid in your neighborhood</p>
+        <h4>Travaillez au sein d'une entreprise et profitez de potentielles synergies</h4>
         <%= form_tag(annonces_path, method: :get) do %>
           <div class="form-group sm-padded">
-            <%= label_tag :city %>
-            <%= text_field_tag :city, nil, placeholder: "City", class: "form-control" %>
+            <%= label_tag :ville %>
+            <%= text_field_tag :city, nil, placeholder: "Ville", class: "form-control" %>
           </div>
           <div class="form-group sm-padded">
             <%= label_tag :date %>
             <%= text_field_tag :date, nil, placeholder: "DD/MM/YYYY", class: "form-control" %>
           </div>
           <div class="form-group sm-padded">
-            <%= label_tag :number_child %>
-            <%= text_field_tag :number_child, nil, placeholder: "Number of children", class: "form-control" %>
+            <%= label_tag :durée %>
+            <%= text_field_tag :durée, nil, placeholder: "Horaires", class: "form-control" %>
+          </div>
+          <div class="form-group sm-padded">
+            <%= label_tag :capacité %>
+            <%= text_field_tag :capacité, nil, placeholder: "Capacité d'accueil", class: "form-control" %>
           </div>
 
        <%= submit_tag "Search", class: "btn btn-primary btn-marged btn-radius" %>
