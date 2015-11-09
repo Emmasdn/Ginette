@@ -1,23 +1,25 @@
-
-
+<div class=padded-booking>
+  <h1 class="text-center "> Hey <strong><span class="rose"><%=@user.first_name%> </span></strong> </h1>
+  <div class= "text-center"><%=image_tag current_user.picture, class: "avatar-large avatar-bordered" %></div>
 <div class="text-center">
-  <h1>Your profile <%= @user.first_name%></h1>
-
   <% if @user.annonces.any? %>
-    <p>Your availabilities</p>
+  <div class="row">
+    <div class="col-xs-6">
+      <strong><h3>My annonces</h3></strong>
 
-    <% @user.annonces.each do |annonce| %>
-      <%= annonce.name %>
-      <%= annonce.adresse %>
-      <%= annonce.price %>
-      <%= annonce.description %>
-      <%= annonce.child_number %>
-    <p><%= link_to 'Edit your annonce', edit_annonce_path(annonce), class: "btn btn-primary" %></p>
+      <% @user.annonces.each do |annonce| %>
+        <P><%= annonce.name %></p>
+        <p><%= annonce.adresse %></p>
+        <p><%= annonce.price %></p>
+        <p><%= annonce.description %></p>
+        <p><%= annonce.child_number %></p>
+      <p><%= link_to 'Edit your annonce', edit_annonce_path(annonce), class: "btn btn-primary" %></p>
+      <% end %>
     <% end %>
-  <% end %>
-
+    </div>
+    <div class="col-xs-6">
   <% if @user.bookings.any? %>
-    <p>Your bookings</p>
+     <strong><h3>My reservation</h3></strong>
 
     <% @user.bookings.each do |booking| %>
       <%= booking.start_at %>
@@ -26,5 +28,6 @@
     <p><%= link_to 'Edit your booking', edit_booking_path(booking), class: "btn btn-primary" %></p>
     <% end %>
   <% end %>
-
+  </div>
+  </div>
 </div>
